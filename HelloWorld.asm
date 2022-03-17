@@ -1,15 +1,14 @@
 		.code
-		public  HelloWorld
+		public  main
 		extern printf: proto
 
-HelloWorld:
+main:
+		sub		rsp, 5 * 8
 		lea     rcx, TheString
-		sub		rsp, 4 * 8
 		call	printf 
-		add		rsp, 4 * 8
+		add		rsp, 5 * 8
 		ret		
 
-		.data
-TheString byte	"Hello World!", 0
+TheString byte	"Hello World!", 0dH, 0aH, 0
 
 		end
